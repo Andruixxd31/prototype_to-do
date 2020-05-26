@@ -10,8 +10,9 @@ const Profile = ({score}) => {
                         className="ba bw2 h4 w4 pink" alt="Yep. Thats Me"/>
                     <div className="ph2 dib white b helvetica"> 
                         <p>Name: AndruixXD</p>
+                        {/* score will be showned to the user and since its a variable it will be updated */}
                         <p>Score: {score}</p>
-                        <p>Type: Simp</p>
+                        <p>Type: Simp</p> 
                     </div>
                     <img
                         src="profile_pic_2.jpeg"

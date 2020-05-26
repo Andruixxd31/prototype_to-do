@@ -11,6 +11,7 @@ class TaskBoard extends React.Component  {
         }
     }
 
+    //Gets the value of the input and asigns it to taskInput
     onInputChange = (event) => {
         this.setState({taskInput: event.target.value});
     }
@@ -18,8 +19,8 @@ class TaskBoard extends React.Component  {
     createTask = (event) => {
         event.preventDefault();
         this.props.addTask({
-            id: shortid.generate(),
-            text: this.state.taskInput
+            id: shortid.generate(), //generates an id for each task created
+            text: this.state.taskInput //asigns the taskinput to the text, that way what is type will be passed to the task
         })
     }
 
@@ -41,6 +42,7 @@ class TaskBoard extends React.Component  {
                     ></input>
                     {/* <Task onTaskCompleted={this.props.onTaskCompleted} onTaskDeselected={this.props.onTaskDeselected} text={this.state.taskInput}/> */}
                     <div>
+                    {/* mapping the array to create a new one that has Task components, the functions and characteristics will be passed on */}
                     {this.props.taskArr.map(task => (
                         <Task 
                         key={task.id} text={task.text} 

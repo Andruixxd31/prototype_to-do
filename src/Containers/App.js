@@ -21,18 +21,20 @@ class App extends Component {
 
   onRouteChange = (route) =>{
     if (route === 'signout'){
-      this.setState(initialState);
+      this.setState(initialState); //Will restart to default values
     }else if(route === 'home') {
-      console.log("Home");
+      console.log("Home"); //to get feedback on the change
     }else if (route === 'loginInfo'){
-      console.log("Login");
+      console.log("Login");//feedback
     }
     else if (route === 'registerInfo'){
-      console.log("Register");
+      console.log("Register"); //feedback
     }
-    this.setState({route: route})
+    this.setState({route: route}) //Changing the route to the one received
   }
 
+  //Method that will make a new array and adding the new task to the start of it 
+  //instead of mutating the already existing array
   addTask = (task) => {
     this.setState({
         taskArr: [task, ...this.state.taskArr] //adding the new task and getting the rest of the previous array
@@ -50,17 +52,17 @@ class App extends Component {
   }
 
   onTaskDeleted = (key) => {
+    //? Needs to be fix, currently destroys all elements
     this.setState({ 
       taskArr: this.state.taskArr.filter(task => task.key !== key)
     });
-    // console.log("task.key:", this.state.task.key);
     console.log("key:", key);
   }
 
   render(){
     const {taskArr, route} = this.state;
     return (
-
+      //The conditional will choose what to render depending of the value of the route
       route === 'home' ? 
       <div>
         <Menu/>
@@ -75,7 +77,6 @@ class App extends Component {
           />
         </div> 
       </div>
-      // route == signInfo ? login : register
       : route === 'loginInfo' ?
         <Login onRouteChange={this.onRouteChange}/>
       : 

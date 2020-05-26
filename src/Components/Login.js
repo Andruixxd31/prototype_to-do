@@ -9,18 +9,22 @@ class Login extends React.Component {
         }
     } 
 
+    //Gets the value of the email input and updates the state
     onEmailChange = (event) => {
         this.setState({signInEmail: event.target.value})
     }
 
+    //Gets the value of the email input and updates the state
     onPasswordChange = (event) => {
         this.setState({signInPassword: event.target.value})
     }
 
+    //Will switch to the register component and unrender this component
     onClickRegister = (event) => {
         this.props.onRouteChange('registerInfo');
     }
 
+    //checks if the email and password are valid if the are it will render the home screen
     onSubmitSignIn = () => {
         if(this.state.signInEmail === "Hello" && this.state.signInPassword === "bye"){
             console.log(this.state.signInEmail);
@@ -41,7 +45,7 @@ class Login extends React.Component {
                             <input 
                             className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                             type="email" name="email-address"  id="email-address"
-                            onChange={this.onEmailChange}
+                            onChange={this.onEmailChange}  //Everytime something is changed in the input it will call onEmailChange
                             />
                         </div>
                         <div className="mv3">
@@ -49,13 +53,13 @@ class Login extends React.Component {
                             <input 
                             className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                             type="password" name="password"  id="password"
-                            onChange={this.onPasswordChange}
+                            onChange={this.onPasswordChange} //Everytime something is changed in the input it will call onPasswordChange
                             />
                         </div>
                     </fieldset>
                     <div className="">
                         <input 
-                        onClick={this.onSubmitSignIn} //pasing as a function so it does not render automatically
+                        onClick={this.onSubmitSignIn} //Calling a function when the button is pressed
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                         type="submit" value="Sign in"
                         />
@@ -64,7 +68,7 @@ class Login extends React.Component {
                         <br/>
                         <legend className="fw2 italic mb2">Don't have an Account?</legend>
                         <input 
-                        onClick={this.onClickRegister} //pasing as a function so it does not render automatically
+                        onClick={this.onClickRegister} //Calling a function when the button is pressed
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib " type="submit" value="Sign up"
                         />
                     </div>

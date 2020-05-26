@@ -1,5 +1,6 @@
 import React from 'react';
 
+//function that will be at the top of the UI
 const Menu = () => {
     return(
         <div className="bg-dark-green tc helvetica pa2">

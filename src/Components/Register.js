@@ -10,13 +10,18 @@ class Register extends React.Component {
         }
     }
 
+    //Gets the email and updates its state
     onEmailChange = (event) => {
         this.setState({email: event.target.value})
     }
+
+    //Gets the password and updates its state
     onPasswordChange = (event) => {
         this.setState({password: event.target.value})
     }
 
+    //Currently on redirects to the home screen
+    // Needs to create a new user and password and store it in the sessison storage
     onSubmitRegister = (event) => {
         console.log(this.state.email);
         console.log(this.state.password);
@@ -35,7 +40,7 @@ class Register extends React.Component {
                             <input 
                             className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                             type="email" name="email-address"  id="email-address"
-                            onChange={this.onEmailChange}
+                            onChange={this.onEmailChange} //will update the email
                             />
                         </div>
                         <div className="mv3">
@@ -43,7 +48,7 @@ class Register extends React.Component {
                             <input 
                             className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                             type="password" name="password"  id="password"
-                            onChange={this.onPasswordChange}
+                            onChange={this.onPasswordChange}  //will update the password
                             />
                         </div>
                     </fieldset>
